@@ -18,6 +18,15 @@ abstract class Controller
 
     public function action()
     {
-        $this->handle();
+        if ($this->access()) {
+            $this->handle();
+        } else {
+            die('Доступ закрыт');
+        }
+    }
+
+    protected function access()
+    {
+        return true;
     }
 }

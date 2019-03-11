@@ -7,6 +7,11 @@ use App\Models\Article;
 
 class Index extends Controller
 {
+    protected function access()
+    {
+        return true;
+    }
+
     protected function handle()
     {
         $this->view->articles = Article::findNLastArticles(3);
